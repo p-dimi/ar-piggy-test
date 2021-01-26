@@ -28,7 +28,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0);
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -48,7 +48,7 @@
   <body style="margin : 0px; overflow: hidden;">
   
   <div class="subs">
-  <h1></h1>
+  <h1 id="subs-text"></h1>
   </div>
   
   <a-scene
@@ -94,7 +94,7 @@
             console.log("Found");
             pig.setAttribute("animation-mixer", {clip:"KeyAction" ,loop:"once", clampWhenFinished:"true"});
             speech.play();
-            //$("#subs").setAttribute("value", "Hi, welcome to the Paley and Efrat-Kowalsky residence. I will be your... Oink... Guide for today.");
+            $("#subs-text").text("Hi, welcome to the Paley and Efrat-Kowalsky residence. I will be your... Oink... Guide for today.");
             
         });
         marker.addEventListener("markerLost", (e)=>{
@@ -102,7 +102,7 @@
             pig.setAttribute("animation-mixer", {clip:"",loop:"once", clampWhenFinished:"true"});
             speech.pause();
             speech.currentTime = 0;
-            //$("#subs").setAttribute("value", "");
+            $("#subs-text").text("");
             
         });
         
